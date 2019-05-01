@@ -1,43 +1,4 @@
-<h1>Burgers!</h1>
-
-<h2>Burgers that have not been eaten!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers that have been eaten!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burg">Burger Name:</label>
-    <input type="text" id="burg" name="burger_name">
-  </div>
-
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Not Devoured
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
-
-<script>
-  $(function() {
+$(function() {
     $(".change-devoured").on("click", function(event) {
       var id = $(this).data("id");
       var newDevoured = $(this).data("newdevoured");
@@ -65,7 +26,7 @@
       event.preventDefault();
   
       var newBurger = {
-        burger_name: $("#burg").val().trim(),
+        name: $("#burg").val().trim(),
         devoured: $("[name=devoured]:checked").val().trim()
       };
   
@@ -83,6 +44,4 @@
     });
   
 })
-</script>
-
-
+  

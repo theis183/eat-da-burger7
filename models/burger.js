@@ -9,7 +9,7 @@ var burgers = {
     },
 
     devourBurger: function(burgerId, cb){
-        orm.updateOne("burgers", "devoured", true, "id", burgerId, function(res){
+        orm.updateOne("burgers", "devoured", true, "id", parseInt(burgerId), function(res){
             cb(res)
         })
     },
